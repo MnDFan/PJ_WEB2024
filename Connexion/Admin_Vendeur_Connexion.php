@@ -8,7 +8,7 @@ session_start(); ?>
 	</head>
 	<body>
 		
-		<form action="Login.php" method="post">
+		<form action="Login_AdminVendeur.php" method="post">
 			<table>
 				<tr>
 					<td>Login :</td>
@@ -18,17 +18,17 @@ session_start(); ?>
 					<td>Password :</td>
 					<td><input type = "password" name="passw"></td>
 				</tr>
-
+				<tr>
+					<td>Type de compte :</td>
+					<td><input type="radio" name="choice" value="1">Admin<br>
+					<input type="radio" name="choice" value="2">Vendeur<br>
+				</tr>
 			</table>
-			<button type="submit" name="Valider">Connexion</button>
+			<button type="submit" name="Valider">Valider</button>
 		</form>
 		<form action="Logout.php">
 			<button type="submit">Déconnexion</button>
 		</form>
-		<a href="Creation.php">Pas de compte ? Créer en un en cliquant ici</a></br>
-		<a href="Admin_Vendeur_Connexion.php">Admin ou vendeur ?</a>
-	<?php if (isset($_SESSION['LOGGED_USER'])) : ?>
-		Connexion okay. <?php echo $_SESSION['LOGGED_USER']; ?>
-	<?php endif; ?>
+		<a href="Index.php">acheteur ?</a>
 	</body>
 </html>

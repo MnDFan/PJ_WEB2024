@@ -9,6 +9,11 @@ $login = isset($_POST["identifiant"])? $_POST["identifiant"] : "";  //Vérifie q
 $pass = isset($_POST["passw"])? $_POST["passw"] : "";
 $choice = isset($_POST["choice"])? $_POST["choice"] : "";
 
+if (empty($choice)) {
+  $choice = 0;
+}
+$choice = (int)$choice;
+
 //identifier le nom de base de données
 $database = "agora";
 //connectez-vous dans votre BDD
@@ -16,14 +21,24 @@ $database = "agora";
 $db_handle = mysqli_connect('localhost', 'root', '' );
 $db_found = mysqli_select_db($db_handle, $database);
 $sql = "";
+switch ($choice) {
+    		case 1:
+      			$sql = "SELECT * FROM administrateur WHERE Login = '$login' AND Password = '$pass'" ;
+      			break;
+    		case 2:
+     	 		$sql = "SELECT * FROM vendeur WHERE Login = '$login' AND Password = '$pass'" ;
+      			break;
+    		default:
+      			$sql = "SELECT * FROM vendeur WHERE Login = '$login' AND Password = '$pass'" ;
+      			break;
+  		}
 
 if ($db_found) {
 	if($login != "" AND $pass != ""){
-		$sql = "SELECT * FROM acheteur WHERE Email = '$login' AND Password = '$pass'" ;
 		$result = mysqli_query($db_handle, $sql);
 		while ($data = mysqli_fetch_assoc($result)) {
-				if ( $data['Email'] == $login && $data['Password'] == $pass ) {  //Deuxième vérification
-					$_SESSION['LOGGED_USER'] = $data['Email']; //Permet de prendre le nom de l'utilisateur
+				if ( $data['Login'] == $login && $data['Password'] == $pass ) {  //Deuxième vérification
+					$_SESSION['LOGGED_USER'] = $data['Login']; //Permet de prendre le nom de l'utilisateur
 				}
  			}
  		}
