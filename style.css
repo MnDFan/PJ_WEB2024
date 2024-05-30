@@ -1,4 +1,6 @@
 /* CORPS */
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
@@ -36,7 +38,7 @@ body {
 
 .dropdownmenu > li {
     position: relative;
-    margin: 0 30px; /* Augmente encore plus l'espacement entre les éléments du menu */
+    margin: 0 40px; /* Augmente encore plus l'espacement entre les éléments du menu */
 }
 
 .dropdownmenu > li > a {
@@ -44,8 +46,8 @@ body {
     padding: 15px 20px;
     color: white;
     text-decoration: none;
-    font-family: 'Avenir', sans-serif;
-    font-size: 18px;
+    font-family: 'Passion One', cursive; /* Applique la police Passion One au menu */
+    font-size: 22px; /* Augmente la taille de la police */
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 5px;
 }
@@ -85,6 +87,8 @@ body {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 5px;
+    font-family: 'Passion One', cursive; /* Applique la police Passion One aux sous-menus */
+    font-size: 20px; /* Assure une taille de police cohérente pour les sous-menus */
 }
 
 .dropdownmenu ul li a:hover {
@@ -142,7 +146,7 @@ h7 {
     margin: 0;
     color: grey;
     border: none;
-    font-style: italic.
+    font-style: italic;
 }
 
 h8 {
@@ -194,7 +198,7 @@ footer {
     margin: 20px auto 0; /* Espacement pour le footer */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	margin-bottom:30px;
+	margin-bottom:40px;
 }
 
 #leftcolumn {
@@ -269,23 +273,23 @@ footer {
     font-size: 24px;
     margin-bottom: 20px;
     color: #37496B;
-    font-family: "Bahnschrift SemiBold", serif.
+    font-family: "Bahnschrift SemiBold", serif;
 }
 
 .form-container td:first-child {
     text-align: right;
     font-weight: bold;
     color: #37496B;
-    font-family: "Bahnschrift SemiBold", serif.
+    font-family: "Bahnschrift SemiBold", serif;
 }
 
 .form-container td:last-child {
-    text-align: left.
+    text-align: left;
 }
 
 .error-message {
     color: red;
-    text-align: center.
-    font-family: Avenir, sans-serif.
-    font-size: 14px.
+    text-align: center;
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
 }
