@@ -57,12 +57,13 @@ if ($db_found) {
         <div class="content">
             <div>
                 <h2>Présentation d'Agoria Francia</h2>
+                //La tu met un texte qui decrit le site
             </div>
             <div>
                 <h2>Sélection du jour</h2>
                 <table>
                     <tr>
-                        <td><?php echo "<img src='$objet1' height='240'>" ?></td>
+                        <td><?php echo "<img src='$objet1' height='240'>" ?></td>  //je vais modifier les images après
                         <td><?php echo "<img src='$objet1' height='240'>" ?></td>
                         <td><?php echo "<img src='$objet1' height='240'>" ?></td>
                         <td><?php echo "<img src='$objet1' height='240'>" ?></td>
