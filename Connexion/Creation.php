@@ -29,7 +29,7 @@
 
         <div class="content">
             <div class="form-container">
-                <p class="form-title">Création d'un compte</p>
+                <h3 class="form-title">Création d'un compte</h3>
                 <form action="Creation_bdd.php" method="post">
                     <table>
                         <tr>
