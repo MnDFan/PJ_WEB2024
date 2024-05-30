@@ -27,41 +27,45 @@ $_SESSION['Erreurmail'] = ''?>
             <li><a href="panier.html">PANIER</a></li>
             <li><a href="Compte.php">COMPTE</a></li>
         </ul>
-        <div class="content">
-            
-		<form action="Connexion/Login.php" method="post">
-            <table>
-                <tr>
-                    <td>Connexion</td>
-                </tr>
-                <tr>
-                    <td>Login :</td>
-                    <td><input type="text" name="identifiant"></td>
-                </tr>
-                <tr>
-                    <td>Password :</td>
-                    <td><input type = "password" name="passw"></td>
-                </tr>
+				<br><br><br>
 
-            </table>
-            <button type="submit" name="Valider">Connexion</button>
-        </form>
-        <form action="Connexion/Logout.php">
-            <button type="submit">Déconnexion</button>
-        </form>
-        <a href="Connexion/Creation.php">Pas de compte ? Créer en un en cliquant ici</a></br>
-        <a href="Connexion/Admin_Vendeur_Connexion.php">Admin ou vendeur ?</a>
-    <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
-        Connexion okay. <?php echo $_SESSION['LOGGED_USER']; ?>
-    <?php endif; ?>
-		
-		
-		
+        <div class="content">
+            <div class="form-container">
+                <p class="form-title">Connexion</p>
+                <form action="Connexion/Login.php" method="post">
+                    <table>
+                        <tr>
+                            <td>Login :</td>
+                            <td><input type="text" name="identifiant"></td>
+                        </tr>
+                        <tr>
+                            <td>Password :</td>
+                            <td><input type="password" name="passw"></td>
+                        </tr>
+                    </table>
+                    <button type="submit" name="Valider">Connexion</button>			<br><br>
+
+                </form>
+                <form action="Connexion/Logout.php">
+                    <button type="submit">Déconnexion</button>		<br><br>
+
+                </form>
+                <div class="form-links">
+                    <a href="Connexion/Creation.php">Pas de compte ? Créer en un en cliquant ici</a><br><br>
+
+                    <a href="Connexion/Admin_Vendeur_Connexion.php">Admin ou vendeur ?</a>
+                </div>
+                <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
+                    <p class="error-message">Connexion réussie. <?php echo $_SESSION['LOGGED_USER']; ?></p>
+                <?php endif; ?>
+            </div>
         </div>
+				<br><br><br>
+
         <footer>
             <p>&copy; 2024 - Agora Francia - Tous droits réservés - <a href="mentions-legales.html">Mentions légales</a></p>
             <p>Développement et design par l'équipe 104</p>
         </footer>
     </div>
 </body>
-</html>																																																																																																																				
+</html>

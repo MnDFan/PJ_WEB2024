@@ -310,3 +310,86 @@ footer {
     border-block: solid black;
 }
 
+
+
+
+/* Formulaire */
+
+/* Formulaire */
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.form-container td {
+    padding: 10px;
+    border: none;
+}
+
+.form-container input[type="text"], 
+.form-container input[type="password"], 
+.form-container input[type="number"], 
+.form-container input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 15px;
+    background-color: #37496B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Avenir, sans-serif;
+}
+
+.form-container button:hover {
+    background-color: #283655;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #37496B;
+    font-family: "Bahnschrift SemiBold", serif;
+}
+
+.form-container td:first-child {
+    text-align: right;
+    font-weight: bold;
+    color: #37496B;
+    font-family: "Bahnschrift SemiBold", serif;
+}
+
+.form-container td:last-child {
+    text-align: left;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
+}
