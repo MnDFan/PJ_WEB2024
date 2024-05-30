@@ -7,7 +7,6 @@ function redirectToUrl(string $url): never //Fonction pour retourner sur la page
 }
 $login = isset($_POST["identifiant"])? $_POST["identifiant"] : "";  //Vérifie que les logins et le mdp ne soient pas vide
 $pass = isset($_POST["passw"])? $_POST["passw"] : "";
-$choice = isset($_POST["choice"])? $_POST["choice"] : "";
 
 //identifier le nom de base de données
 $database = "agora";
@@ -31,5 +30,5 @@ if ($db_found) {
 else {
  	echo "Database not found";
  }
-redirectToUrl('Index.php');   //Redirige automatiquement vers la page index
+redirectToUrl('../Compte.php');   //Redirige automatiquement vers la page index
 ?>

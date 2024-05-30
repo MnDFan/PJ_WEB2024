@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['Erreurmail'] = '';
+
 function redirectToUrl(string $url): never //Fonction pour retourner sur la page index
 {
     header("Location: {$url}");
@@ -7,9 +10,10 @@ function redirectToUrl(string $url): never //Fonction pour retourner sur la page
   //Vérifie que les logins et le mdp ne soient pas vide
 
 if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-    	echo 'Il faut un email valide pour soumettre le formulaire.';
+    	$_SESSION['Erreurmail'] = 'Il vous faut un e-mail valide';
+    	redirectToUrl('Creation.php');
 } else {
-	$login = isset($_POST["email"])? $_POST["email"] : "";
+	$login = isset($_POST["email"])? $_POST["email"] : "";  //Vérifier que tout est remplie
 	$pass = isset($_POST["passw"])? $_POST["passw"] : "";
 	$nom = isset($_POST["nom"])? $_POST["nom"] : "";
 	$prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
@@ -47,6 +51,7 @@ if ($db_found) {
 else {
 	echo "Database not found";
 }
+redirectToUrl('Creation.php');
 }
 
 ?>

@@ -1,11 +1,31 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset=utf-8 />
-		<title>Création d'un compte PJ WEB2024</title>
-	</head>
-	<body>
-		
+<head>
+    <meta charset="utf-8">
+    <title>Agora Francia</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div>
+            <h1 class="logo" align="center"><a href="index.html"><img src="../Images/logo-agora.png" height="140px"></a></h1>
+        </div>
+        <br>
+        <ul class="dropdownmenu">
+            <li><a href="../Accueil.php">ACCUEIL</a></li>
+            <li><a href="#" style="text-decoration:none">TOUT PARCOURIR</a>
+                <ul>
+                    <li><a href="achat-immediat.html">Achat immédiat</a></li>
+                    <li><a href="transaction-vendeur-acheteur.html">Transaction vendeur/client</a></li>
+                    <li><a href="meilleure-offre.html">Meilleure offre</a></li>
+                </ul>
+            </li>
+            <li><a href="notifications.html">NOTIFICATION</a></li>
+            <li><a href="panier.html">PANIER</a></li>
+            <li><a href="Connexion/Compte.php">COMPTE</a></li>
+        </ul>
+        <div class="content">
 		<form action="Creation_bdd.php" method="post">
 			<p>Création d'un compte</p>
 			<table>
@@ -52,6 +72,17 @@
 			</table>
 			<button type="submit" name="Valider">Valider</button>
 		</form>
-
-	</body>
-</html>
+		<?php if (isset($_SESSION['Erreurmail'])) : ?>
+        <?php echo $_SESSION['Erreurmail']; ?>
+    <?php endif; ?>
+		
+		
+		
+        </div>
+        <footer>
+            <p>&copy; 2024 - Agora Francia - Tous droits réservés - <a href="mentions-legales.html">Mentions légales</a></p>
+            <p>Développement et design par l'équipe 104</p>
+        </footer>
+    </div>
+</body>
+</html>																																																																																																																				

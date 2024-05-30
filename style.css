@@ -1,212 +1,312 @@
-body{ 
-    margin: auto;
-    padding: 0px;
+/* CORPS */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
     font-family: Avenir, sans-serif;
-	background-color: #F6F4F0;
-	
+    background-color: #F6F4F0;
 }
 
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONTENT */
+.content {
+    flex: 1;
+}
+
+/* HEADER */
 .dropdownmenu {
     background-color: #37496B;
-	margin: auto;
+    margin: auto;
 }
-/* Suppression des puces et des marges pour les listes du menu et des sous-menus */ 
+
+/* Suppression des puces et des marges pour les listes du menu et des sous-menus */
 .dropdownmenu,
 .dropdownmenu ul {
-    list-style-type: none; 
-    margin: -42px; 
+    list-style-type: none;
+    margin: -30px;
     padding: 0px;
-	text-align: center;
-
-} 
-.dropdownmenu ul { /* Masquage des sous-menu par defaut */
-    display: none;
-}
-.dropdownmenu li {
-    /* Disposition horizontale des elements de menu */
-    display: inline-block;
-    /* Positionnement relative des elements de menu pour pouvoir positionner les sous-menu correctement en absolu */
-    position: relative;
-}
-.dropdownmenu a {
-    /* On transforme les liens en bloc pour pouvoir les dimensionner */
-    display: block;
-    /* Dimensions des liens */ 
-    width: 200px; 
-    height: 30px; 
-    line-height: 30px; 
-    /* Doit etre equivalent a la hauteur du menu pour centrer le texte verticalement */
-    padding: 10px 10px;
     text-align: center;
 }
 
+.dropdownmenu ul { /* Masquage des sous-menu par défaut */
+    display: none;
+}
 
-.dropdownmenu ul a { 
+.dropdownmenu li {
+    /* Disposition horizontale des éléments de menu */
+    display: inline-block;
+    /* Positionnement relative des éléments de menu pour pouvoir positionner les sous-menu correctement en absolu */
+    position: relative;
+}
+
+.dropdownmenu a {
+    /* On transforme les liens en bloc pour pouvoir les dimensionner */
+    display: block;
+    /* Dimensions des liens */
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    /* Doit être équivalent à la hauteur du menu pour centrer le texte verticalement */
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.dropdownmenu li:hover ul {
+    /* Affichage du sous-menu au survol */
+    display: block;
+    /* Positionnement du sous-menu */
+    position: absolute;
+    top: 72px; /* Hauteur du menu + hauteur du padding top et bottom */
+    left: 0px; /* Décalage du sous-menu par rapport aux liens du menu */
+    z-index: 100; /* Gestion de la superposition des sous-menus par rapport au reste de la page */
+}
+
+.dropdownmenu ul a {
     /* Changement de l'affichage des liens des sous-menus pour ne pas les afficher en inline-block comme les liens de menu, ils seront donc verticaux */
     display: block;
 }
+
 /* Gestion des couleurs */
-.dropdownmenu li { 
-    background-color: #37496B; /* Couleur d'arriere-plan du menu */
+.dropdownmenu li {
+    background-color: #37496B; /* Couleur d'arrière-plan du menu */
 }
-.dropdownmenu li a { 
-    color: white; /* Couleur du texte du menu */ 
+
+.dropdownmenu li a {
+    color: white; /* Couleur du texte du menu */
 }
+
 .dropdownmenu li:hover {
-    background-color: #37496B; /* Couleur d'arriere-plan du menu au survol */
+    background-color: #37496B; /* Couleur d'arrière-plan du menu au survol */
 }
+
 .dropdownmenu li:hover a {
-    color: black; /* Couleur du texte du menu au survol */ 
+    color: white; /* Couleur du texte du menu au survol */
+    text-decoration: underline; /* Ajout du soulignage */
 }
-.dropdownmenu ul li { 
-    background-color: black; /* Couleur d'arriere-plan des sous-menu */ 
+
+.dropdownmenu ul li {
+    background-color: #37496B; /* Couleur d'arrière-plan des sous-menu */
 }
+
 .dropdownmenu ul li:hover {
-    background-color: #E1DAD0; /* Couleur d'arriere-plan des sous-menu au survol */ 
+    background-color: #37496B; /* Couleur d'arrière-plan des sous-menu au survol */
 }
+
 .dropdownmenu ul li a {
-    color: white; /* Couleur du texte des sous-menu */ 
+    color: white; /* Couleur du texte des sous-menu */
 }
+
 .dropdownmenu ul li:hover a {
     color: black; /* Couleur du texte des sous-menu au survol */
-} 
-
-	h1{ 
-		
-		font-family: "Bahnschrift SemiBold", serif; 
-		font-size : 34px; 
-		margin: auto;
-		padding: 40px;
-		color  : black;
-		border : none;
-		text-align: center;
-
-}
-	p{ 
-		
-		font-family: "Calibri", serif; 
-		font-size : 14px; 
-		border : none;
-		text-align: center;
-
-}
-	h5{ 
-		
-		font-family: "Bahnschrift SemiBold", serif; 
-		font-size : 34px; 
-		margin : 0;
-		color  : white;
-		border : none;
-}
-	h6{ 
-		
-		font-family: "Calibri", serif; 
-		font-size : 15px; 
-		margin : 0;
-		color  : white;
-		border : none;
-}
-	h7{ 
-		
-		font-family: "Helvetica", serif; 
-		font-size : 25px; 
-		margin : 0;
-		color  : grey;
-		border : none;
-		font-style:italic;
-}
-	h8{ 
-		
-		font-family: "Impact", serif; 
-		font-size : 55px; 
-		margin : 0;
-		color  : white;
-		border : none;
-		font-style:bold;
-}
-	h9{ 
-		
-		font-family: "Georgia", sans-serif; 
-		font-size : 20px; 
-		margin : 0;
-		color  : white;
-		border : none;
-}
-table{
-	font-family: "Bahnschrift SemiBold", serif; 
-	border-collapse: collapse;
-	margin: auto;
-	table-layout: 50px;
-}
-th{
-	border: 2px solid black;
-	padding: 50px; 
-	text-align: center;
-	color: white;
-	background-color: #37496B;
-
-}
-td{
-	border: 2px solid black;
-	padding: 50px; 
-	text-align: center;
-	color: black;
+    text-decoration: underline; /* Ajout du soulignage */
 }
 
 .dropdownmenu1 {
     background-color: white;
-	margin: auto; 
-	position: fixed ;
+    margin: auto;
+    position: fixed;
 }
-/* Suppression des puces et des marges pour les listes du menu et des sous-menus */ 
+
+/* Suppression des puces et des marges pour les listes du menu et des sous-menus */
 .dropdownmenu1,
 .dropdownmenu1 ul {
-    list-style-type: none; 
-    margin: 0px; 
+    list-style-type: none;
+    margin: 0px;
     padding: 0px;
-} 
-.dropdownmenu1 ul { /* Masquage des sous-menu par defaut */
+}
+
+.dropdownmenu1 ul { /* Masquage des sous-menu par défaut */
     display: none;
 }
+
 .dropdownmenu1 li {
-    /* Disposition horizontale des elements de menu */
+    /* Disposition horizontale des éléments de menu */
     display: inline-block;
-    /* Positionnement relative des elements de menu pour pouvoir positionner les sous-menu correctement en absolu */
+    /* Positionnement relative des éléments de menu pour pouvoir positionner les sous-menu correctement en absolu */
     position: relative;
 }
+
 .dropdownmenu1 a {
     /* On transforme les liens en bloc pour pouvoir les dimensionner */
     display: block;
-    /* Dimensions des liens */ 
-    width: 248px; 
-    height: 30px; 
-    line-height: 30px; 
-    /* Doit etre equivalent a la hauteur du menu pour centrer le texte verticalement */
+    /* Dimensions des liens */
+    width: 248px;
+    height: 30px;
+    line-height: 30px;
+    /* Doit être équivalent à la hauteur du menu pour centrer le texte verticalement */
     padding: 6px 10px;
     text-align: center;
 }
+
 .dropdownmenu1 li:hover ul {
-    /* Affichage du soumenu au survol */
+    /* Affichage du sous-menu au survol */
     display: block;
-    /* Positionnement du sous-menu */ 
-    position: absolute; 
-    top: 42px; /* Hauteur du menu + hauteur du padding top et bottom  */ 
-    left: 0px; /* Decalage du sous-menu par rapport aux liens du menu*/ 
-    z-index: 100; /* Gestion de la superposition des sous-menus par rapport au reste de la page */ 
+    /* Positionnement du sous-menu */
+    position: absolute;
+    top: 72px; /* Hauteur du menu + hauteur du padding top et bottom */
+    left: 0px; /* Décalage du sous-menu par rapport aux liens du menu */
+    z-index: 100; /* Gestion de la superposition des sous-menus par rapport au reste de la page */
 }
-.dropdownmenu1 ul a { 
+
+.dropdownmenu1 ul a {
     /* Changement de l'affichage des liens des sous-menus pour ne pas les afficher en inline-block comme les liens de menu, ils seront donc verticaux */
     display: block;
 }
 
+/* Gestion des couleurs */
+.dropdownmenu1 li {
+    background-color: white; /* Couleur d'arrière-plan du menu */
+}
 
+.dropdownmenu1 li a {
+    color: black; /* Couleur du texte du menu */
+}
 
+.dropdownmenu1 li:hover {
+    background-color: white; /* Couleur d'arrière-plan du menu au survol */
+}
+
+.dropdownmenu1 li:hover a {
+    color: black; /* Couleur du texte du menu au survol */
+}
+
+.dropdownmenu1 ul li {
+    background-color: white; /* Couleur d'arrière-plan des sous-menu */
+}
+
+.dropdownmenu1 ul li:hover {
+    background-color: black; /* Couleur d'arrière-plan des sous-menu au survol */
+}
+
+.dropdownmenu1 ul li a {
+    color: black; /* Couleur du texte des sous-menu */
+}
+
+.dropdownmenu1 ul li:hover a {
+    color: white; /* Couleur du texte des sous-menu au survol */
+}
+
+/* TEXTES */
+
+h1 {
+    font-family: "Bahnschrift SemiBold", serif;
+    font-size: 34px;
+    margin: auto;
+    padding: 40px;
+    color: black;
+    border: none;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Bahnschrift SemiBold", serif;
+    font-size: 34px;
+    margin: auto;
+    padding: 40px;
+    color: black;
+    border: none;
+    text-align: left;
+}
+
+p {
+    font-family: "Calibri", serif;
+    font-size: 14px;
+    border: none;
+    text-align: center;
+}
+
+h5 {
+    font-family: "Bahnschrift SemiBold", serif;
+    font-size: 34px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+h6 {
+    font-family: "Calibri", serif;
+    font-size: 15px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+h7 {
+    font-family: "Helvetica", serif;
+    font-size: 25px;
+    margin: 0;
+    color: grey;
+    border: none;
+    font-style: italic;
+}
+
+h8 {
+    font-family: "Impact", serif;
+    font-size: 55px;
+    margin: 0;
+    color: white;
+    border: none;
+    font-style: bold;
+}
+
+h9 {
+    font-family: "Georgia", sans-serif;
+    font-size: 20px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+table {
+    font-family: "Bahnschrift SemiBold", serif;
+    border-collapse: collapse;
+    margin: auto;
+    table-layout: 50px;
+}
+
+th {
+    border: 2px solid black;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    background-color: #37496B;
+}
+
+td {
+    border: 2px solid black;
+    padding: 50px;
+    text-align: center;
+    color: black;
+}
+
+/* FOOTER */
 footer {
-	background-color: #37496B;
-	padding: 30px;
-	margin-top: 100px; 
-	text-align: center;
-	color  : white;
-	width: 100%;
+    background-color: #37496B;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+#leftcolumn{
+    padding-top: 50px;
+    width: 150px;
+    float: left;
+}
+
+#leftcolumn a{
+    display: block;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    border-block: solid black;
 }
 

@@ -46,5 +46,5 @@ if ($db_found) {
 else {
  	echo "Database not found";
  }
-redirectToUrl('Index.php');   //Redirige automatiquement vers la page index
+redirectToUrl('../Compte.php');   //Redirige automatiquement vers la page index
 ?>
