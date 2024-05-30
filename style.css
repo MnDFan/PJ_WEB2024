@@ -1,3 +1,4 @@
+
 /* CORPS */
 body {
     display: flex;
@@ -284,4 +285,18 @@ footer {
     text-align: center;
     color: white;
     width: 100%;
+}
+
+#leftcolumn{
+    padding-top: 50px;
+    width: 150px;
+    float: left;
+}
+
+#leftcolumn a{
+    display: block;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    border-block: solid black;
 }
