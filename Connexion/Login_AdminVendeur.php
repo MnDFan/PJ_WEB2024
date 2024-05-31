@@ -38,7 +38,11 @@ if ($db_found) {
 		$result = mysqli_query($db_handle, $sql);
 		while ($data = mysqli_fetch_assoc($result)) {
 				if ( $data['Login'] == $login && $data['Password'] == $pass ) {  //Deuxième vérification
-					$_SESSION['LOGGED_USER'] = $data['Login']; //Permet de prendre le nom de l'utilisateur
+					if($choice == 1){
+						$_SESSION['LOGGED_ADMIN'] = $data['Login']; //Permet de prendre le nom de l'utilisateur
+					} else {
+						$_SESSION['LOGGED_VENDEUR'] = $data['Login'];
+					}
 				}
  			}
  		}

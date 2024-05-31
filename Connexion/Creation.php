@@ -16,22 +16,29 @@
             <li><a href="../Accueil.php">ACCUEIL</a></li>
             <li><a href="#" style="text-decoration:none">TOUT PARCOURIR</a>
                 <ul>
-                    <li><a href="achat-immediat.html">Achat immédiat</a></li>
-                    <li><a href="transaction-vendeur-acheteur.html">Transaction vendeur/client</a></li>
-                    <li><a href="meilleure-offre.html">Meilleure offre</a></li>
+                    <li><a href="../achat-immediat.php">Achat immédiat</a></li>
+                    <li><a href="../transaction-vendeur-acheteur.php">Transaction vendeur/client</a></li>
+                    <li><a href="../meilleure-offre.php">Meilleure offre</a></li>
                 </ul>
             </li>
-            <li><a href="notifications.html">NOTIFICATION</a></li>
-            <li><a href="panier.html">PANIER</a></li>
-            <li><a href="Connexion/Compte.php">COMPTE</a></li>
+            <li><a href="../notifications.php">NOTIFICATION</a></li>
+            <li><a href="../panier.php">PANIER</a></li>
+            <li><a href="../Compte.php">COMPTE</a></li>
         </ul>
 		<br><br><br>
 
         <div class="content">
+            <?php if ($_SESSION['REMPLIR'] == 'ok') : ?>
+                Ajout réussi <?php echo $_SESSION['REMPLIR'];?>
+            <?php else: ?>
             <div class="form-container">
                 <h3 class="form-title">Création d'un compte</h3>
                 <form action="Creation_bdd.php" method="post">
                     <table>
+                        <tr>
+                            <td>Pseudo :</td>
+                            <td><input type="text" name="pseudo"></td>
+                        </tr>
                         <tr>
                             <td>Nom :</td>
                             <td><input type="text" name="nom"></td>
@@ -76,9 +83,39 @@
 							<br>
                     <button type="submit" name="Valider">Valider</button>
                 </form>
-                <?php if (isset($_SESSION['Erreurmail'])) : ?>
-                    <p class="error-message"><?php echo $_SESSION['Erreurmail']; ?></p>
+                
                 <?php endif; ?>
+                <?php if (isset($_SESSION['Login'])) : ?>
+                    <?php if (isset($_SESSION['Erreurmail'])) : ?>
+                    <p class="error-message"><?php echo $_SESSION['Erreurmail']; ?></p>
+                    <?php else: ?>
+                        <?php echo  $_SESSION['Login']; ?></p>
+                    <?php endif ?>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['Nom'])) : ?>
+                    <p class="error-message"><?php echo  $_SESSION['Nom'] ;?></p>
+                <?php endif; ?>
+    <?php if (isset($_SESSION['Prenom'])) : ?>
+        <p class="error-message"><?php echo  $_SESSION['Prenom']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Pseudo'])) : ?>
+        <p class="error-message"><?php echo  $_SESSION['Pseudo']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Adresse1'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Adresse1']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Postal'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Postal']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Ville'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Ville']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Pays'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Pays']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Tel'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Tel']; ?></p>
+    <?php endif; ?>
             </div>
         </div>
 				<br><br><br>

@@ -1,6 +1,9 @@
 <?php 
 session_start(); 
 $_SESSION['Erreurmail'] = '';
+$_SESSION['Mail'] = '';
+$_SESSION['Pseudo'] = '';
+$_SESSION['Password'] = '';
 $_SESSION['Nom'] = '';
 $_SESSION['Prenom'] = '';
 $_SESSION['Adresse1'] = '';
@@ -29,38 +32,44 @@ $_SESSION['REMPLIR'] = '';?>
             <li><a href="#" style="text-decoration:none">TOUT PARCOURIR</a>
                 <ul>
                     <li><a href="achat-immediat.php">Achat immédiat</a></li>
-                    <li><a href="transaction-vendeur-acheteur.html">Transaction vendeur/client</a></li>
-                    <li><a href="meilleure-offre.html">Meilleure offre</a></li>
+                    <li><a href="transaction-vendeur-acheteur.php">Transaction vendeur/client</a></li>
+                    <li><a href="meilleure-offre.php">Meilleure offre</a></li>
                 </ul>
             </li>
-            <li><a href="notifications.html">NOTIFICATION</a></li>
-            <li><a href="panier.html">PANIER</a></li>
+            <li><a href="notifications.php">NOTIFICATION</a></li>
+            <li><a href="panier.php">PANIER</a></li>
             <li><a href="Compte.php">COMPTE</a></li>
         </ul>
         <br><br><br>
         <div class="content">
             <div class="form-container">
-			                <h3 class="form-title">Connexion à un compte</h3>
-
-				<?php if (isset($_SESSION['LOGGED_USER'])) : ?>
+                            
+                <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
+                    <h3 class="form-title">Bienvenue <?php echo $_SESSION['LOGGED_USER'] ?></h3>
 
         Connexion okay. <?php echo $_SESSION['LOGGED_USER']; ?>
         <form action="Connexion/Logout.php">
             <button type="submit">Déconnexion</button>
         </form>
-        //Met en avant la page Admin, vendeur ou acheteur ou demande de se connecter
     <?php elseif (isset($_SESSION['LOGGED_ADMIN'])) : ?>
+        <h3 class="form-title">Bienvenue <?php echo $_SESSION['LOGGED_ADMIN'] ?></h3>
         Connexion okay admin 
+        <form action="Connexion/Creation_vendeur.php">
+            <button type="submit">Ajouter un vendeur </button>
+        </form>
+        </br>
         <form action="Connexion/Logout.php">
             <button type="submit">Déconnexion</button>
         </form>
     <?php elseif (isset($_SESSION['LOGGED_VENDEUR'])) : ?>
+        <h3 class="form-title">Bienvenue <?php echo $_SESSION['LOGGED_VENDEUR'] ?></h3>
         Connexion okay vendeur
         <form action="Connexion/Logout.php">
             <button type="submit">Déconnexion</button>
         </form><br>
     <?php else: ?>
-		<form action="Connexion/Login.php" method="post">
+        <h3 class="form-title">Connexion à un compte</h3>
+        <form action="Connexion/Login.php" method="post">
             <table>
                 <tr>
                     <td>Login :</td>
@@ -78,7 +87,7 @@ $_SESSION['REMPLIR'] = '';?>
         <a href="Connexion/Creation.php">Vous ne possedez pas de compte ? Créez-en un en cliquant ici.</a></br><br>
         <a href="Connexion/Admin_Vendeur_Connexion.php">Cliquez ici pour accéder à l'espace Admin/Vendeur.</a>
 
-		<?php endif; ?>
+        <?php endif; ?>
         </div>
         </div>
         <br><br><br>

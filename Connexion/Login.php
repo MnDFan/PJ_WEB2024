@@ -22,7 +22,7 @@ if ($db_found) {
 		$result = mysqli_query($db_handle, $sql);
 		while ($data = mysqli_fetch_assoc($result)) {
 				if ( $data['Email'] == $login && $data['Password'] == $pass ) {  //Deuxième vérification
-					$_SESSION['LOGGED_USER'] = $data['Email']; //Permet de prendre le nom de l'utilisateur
+					$_SESSION['LOGGED_USER'] = $data['Pseudo']; //Permet de prendre le nom de l'utilisateur
 				}
  			}
  		}

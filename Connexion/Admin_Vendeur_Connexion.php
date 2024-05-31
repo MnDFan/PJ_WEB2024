@@ -18,14 +18,14 @@ session_start();
             <li><a href="../Accueil.php">ACCUEIL</a></li>
             <li><a href="#" style="text-decoration:none">TOUT PARCOURIR</a>
                 <ul>
-                    <li><a href="achat-immediat.html">Achat immédiat</a></li>
-                    <li><a href="transaction-vendeur-acheteur.html">Transaction vendeur/client</a></li>
-                    <li><a href="meilleure-offre.html">Meilleure offre</a></li>
+                    <li><a href="../achat-immediat.php">Achat immédiat</a></li>
+                    <li><a href="../transaction-vendeur-acheteur.php">Transaction vendeur/client</a></li>
+                    <li><a href="../meilleure-offre.php">Meilleure offre</a></li>
                 </ul>
             </li>
-            <li><a href="notifications.html">NOTIFICATION</a></li>
-            <li><a href="panier.html">PANIER</a></li>
-            <li><a href="Connexion/Compte.php">COMPTE</a></li>
+            <li><a href="../notifications.php">NOTIFICATION</a></li>
+            <li><a href="../panier.php">PANIER</a></li>
+            <li><a href="../Compte.php">COMPTE</a></li>
         </ul>
         <br><br><br>
         <div class="content">
