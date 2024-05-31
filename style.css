@@ -1,5 +1,6 @@
-
 /* CORPS */
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
@@ -19,192 +20,105 @@ body {
 /* CONTENT */
 .content {
     flex: 1;
+    padding: 20px;
 }
 
 /* HEADER */
 .dropdownmenu {
     background-color: #37496B;
-    margin: auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    margin: 5px auto 0; /* Réduit encore l'espace entre le logo et le menu */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+    z-index: 1000; /* Assure que le menu est au-dessus d'autres éléments */
+
 }
 
-/* Suppression des puces et des marges pour les listes du menu et des sous-menus */
-.dropdownmenu,
-.dropdownmenu ul {
-    list-style-type: none;
-    margin: -30px;
-    padding: 0px;
-    text-align: center;
-}
-
-.dropdownmenu ul { /* Masquage des sous-menu par défaut */
-    display: none;
-}
-
-.dropdownmenu li {
-    /* Disposition horizontale des éléments de menu */
-    display: inline-block;
-    /* Positionnement relative des éléments de menu pour pouvoir positionner les sous-menu correctement en absolu */
+.dropdownmenu > li {
     position: relative;
+    margin: 0 40px; /* Augmente encore plus l'espacement entre les éléments du menu */
 }
 
-.dropdownmenu a {
-    /* On transforme les liens en bloc pour pouvoir les dimensionner */
+.dropdownmenu > li > a {
     display: block;
-    /* Dimensions des liens */
-    width: 200px;
-    height: 30px;
-    line-height: 30px;
-    /* Doit être équivalent à la hauteur du menu pour centrer le texte verticalement */
-    padding: 10px 10px;
-    text-align: center;
+    padding: 15px 20px;
+    color: white;
     text-decoration: none;
+    font-family: 'Passion One', cursive; /* Applique la police Passion One au menu */
+    font-size: 22px; /* Augmente la taille de la police */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
 }
 
-.dropdownmenu li:hover ul {
-    /* Affichage du sous-menu au survol */
-    display: block;
-    /* Positionnement du sous-menu */
+.dropdownmenu > li:hover > a {
+    background-color: #283655;
+    color: #FFF;
+}
+
+.dropdownmenu ul {
+    display: none;
     position: absolute;
-    top: 72px; /* Hauteur du menu + hauteur du padding top et bottom */
-    left: 0px; /* Décalage du sous-menu par rapport aux liens du menu */
-    z-index: 100; /* Gestion de la superposition des sous-menus par rapport au reste de la page */
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #37496B;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.dropdownmenu ul a {
-    /* Changement de l'affichage des liens des sous-menus pour ne pas les afficher en inline-block comme les liens de menu, ils seront donc verticaux */
+.dropdownmenu li:hover > ul {
     display: block;
-}
-
-/* Gestion des couleurs */
-.dropdownmenu li {
-    background-color: #37496B; /* Couleur d'arrière-plan du menu */
-}
-
-.dropdownmenu li a {
-    color: white; /* Couleur du texte du menu */
-}
-
-.dropdownmenu li:hover {
-    background-color: #37496B; /* Couleur d'arrière-plan du menu au survol */
-}
-
-.dropdownmenu li:hover a {
-    color: white; /* Couleur du texte du menu au survol */
-    text-decoration: underline; /* Ajout du soulignage */
 }
 
 .dropdownmenu ul li {
-    background-color: #37496B; /* Couleur d'arrière-plan des sous-menu */
-}
-
-.dropdownmenu ul li:hover {
-    background-color: #37496B; /* Couleur d'arrière-plan des sous-menu au survol */
+    margin: 0;
 }
 
 .dropdownmenu ul li a {
-    color: white; /* Couleur du texte des sous-menu */
-}
-
-.dropdownmenu ul li:hover a {
-    color: black; /* Couleur du texte des sous-menu au survol */
-    text-decoration: underline; /* Ajout du soulignage */
-}
-
-.dropdownmenu1 {
-    background-color: white;
-    margin: auto;
-    position: fixed;
-}
-
-/* Suppression des puces et des marges pour les listes du menu et des sous-menus */
-.dropdownmenu1,
-.dropdownmenu1 ul {
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-}
-
-.dropdownmenu1 ul { /* Masquage des sous-menu par défaut */
-    display: none;
-}
-
-.dropdownmenu1 li {
-    /* Disposition horizontale des éléments de menu */
-    display: inline-block;
-    /* Positionnement relative des éléments de menu pour pouvoir positionner les sous-menu correctement en absolu */
-    position: relative;
-}
-
-.dropdownmenu1 a {
-    /* On transforme les liens en bloc pour pouvoir les dimensionner */
+    padding: 10px 20px;
     display: block;
-    /* Dimensions des liens */
-    width: 248px;
-    height: 30px;
-    line-height: 30px;
-    /* Doit être équivalent à la hauteur du menu pour centrer le texte verticalement */
-    padding: 6px 10px;
-    text-align: center;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+    font-family: 'Passion One', cursive; /* Applique la police Passion One aux sous-menus */
+    font-size: 20px; /* Assure une taille de police cohérente pour les sous-menus */
 }
 
-.dropdownmenu1 li:hover ul {
-    /* Affichage du sous-menu au survol */
-    display: block;
-    /* Positionnement du sous-menu */
-    position: absolute;
-    top: 72px; /* Hauteur du menu + hauteur du padding top et bottom */
-    left: 0px; /* Décalage du sous-menu par rapport aux liens du menu */
-    z-index: 100; /* Gestion de la superposition des sous-menus par rapport au reste de la page */
-}
-
-.dropdownmenu1 ul a {
-    /* Changement de l'affichage des liens des sous-menus pour ne pas les afficher en inline-block comme les liens de menu, ils seront donc verticaux */
-    display: block;
-}
-
-/* Gestion des couleurs */
-.dropdownmenu1 li {
-    background-color: white; /* Couleur d'arrière-plan du menu */
-}
-
-.dropdownmenu1 li a {
-    color: black; /* Couleur du texte du menu */
-}
-
-.dropdownmenu1 li:hover {
-    background-color: white; /* Couleur d'arrière-plan du menu au survol */
-}
-
-.dropdownmenu1 li:hover a {
-    color: black; /* Couleur du texte du menu au survol */
-}
-
-.dropdownmenu1 ul li {
-    background-color: white; /* Couleur d'arrière-plan des sous-menu */
-}
-
-.dropdownmenu1 ul li:hover {
-    background-color: black; /* Couleur d'arrière-plan des sous-menu au survol */
-}
-
-.dropdownmenu1 ul li a {
-    color: black; /* Couleur du texte des sous-menu */
-}
-
-.dropdownmenu1 ul li:hover a {
-    color: white; /* Couleur du texte des sous-menu au survol */
+.dropdownmenu ul li a:hover {
+    background-color: #283655;
+    color: #FFF;
 }
 
 /* TEXTES */
-
 h1 {
+    font-family: "Bahnschrift SemiBold", serif;
+    font-size: 34px;
+    margin: auto;
+    padding: 10px; /* Réduit l'espacement autour du logo */
+    color: black;
+    border: none;
+    text-align: center;
+}
+
+h2 {
     font-family: "Bahnschrift SemiBold", serif;
     font-size: 34px;
     margin: auto;
     padding: 40px;
     color: black;
     border: none;
-    text-align: center;
+    text-align: left;
 }
 
 p {
@@ -284,19 +198,113 @@ footer {
     padding: 30px;
     text-align: center;
     color: white;
-    width: 100%;
+	font-size: 18px; /* Augmente la taille de la police */
+    width: 91%;
+    margin: 20px auto 0; /* Espacement pour le footer */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin-bottom:40px;
 }
 
-#leftcolumn{
+
+footer a {
+    color: white; /* Rend les liens en blanc */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline; /* Ajoute une décoration de soulignement au survol */
+}
+
+#leftcolumn {
     padding-top: 50px;
     width: 150px;
     float: left;
 }
 
-#leftcolumn a{
+#leftcolumn a {
     display: block;
     margin-right: 15px;
     margin-bottom: 15px;
     margin-left: 15px;
     border-block: solid black;
+}
+
+/* Formulaire */
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.form-container td {
+    padding: 10px;
+    border: none;
+}
+
+.form-container input[type="text"], 
+.form-container input[type="password"], 
+.form-container input[type="number"], 
+.form-container input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 15px;
+    background-color: #37496B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Avenir, sans-serif;
+}
+
+.form-container button:hover {
+    background-color: #283655;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #37496B;
+    font-family: "Bahnschrift SemiBold", serif;
+}
+
+.form-container td:first-child {
+    text-align: right;
+    font-weight: bold;
+    color: #37496B;
+    font-family: "Bahnschrift SemiBold", serif;
+}
+
+.form-container td:last-child {
+    text-align: left;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
 }
