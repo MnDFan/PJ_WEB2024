@@ -11,7 +11,7 @@ session_start();
 <body>
     <div class="wrapper">
         <div>
-            <h1 class="logo" align="center"><a href="index.html"><img src="../Images/logo-agora.png" height="140px"></a></h1>
+            <h1 class="logo" align="center"><a href="../accueil.php"><img src="../Images/logo-agora.png" height="140px"></a></h1>
         </div>
         <br>
         <ul class="dropdownmenu">
