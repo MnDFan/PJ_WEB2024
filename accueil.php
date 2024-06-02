@@ -167,7 +167,6 @@ if ($db_found) {
               }   
         </script>
         <footer>
-            <p><button class="theme-toggle-button" onclick="toggleTheme()">Changer de mode</button></p>
             <p>&copy; 2024 - Agora Francia - Tous droits réservés - <a href="mentions-legales.html">Mentions légales</a></p>
             <p>Développement et design par l'équipe 104</p>
         </footer>
