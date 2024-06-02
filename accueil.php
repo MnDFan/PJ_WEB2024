@@ -126,15 +126,15 @@ if ($db_found) {
             <li><a href="panier.php">PANIER</a></li>
             <li><a href="compte.php">COMPTE</a></li>
         </ul>
-        <br><br><br>
+        <br>
         <div class="content">
             <div class="home-container">
-                <h2>Présentation d'Agora Francia</h2>
+                <h2 style="font-family: 'Avenir', sans-serif;">Présentation d'Agora Francia</h2>
                 <p>Bienvenue sur Agora Francia, votre plateforme de confiance pour l'achat et la vente de biens en ligne.</p>
             </div>
             <br>
             <div class="home-container">
-                <h2>Sélection du jour</h2>
+                <h2 style="font-family: 'Avenir', sans-serif;">Sélection du jour</h2>
                 <table>
                     <tr>
                         <td><a href="article/article.php?id=<?php echo $id_objet1 ;?>">
@@ -154,11 +154,18 @@ if ($db_found) {
             </div>
             <br>
             <div class="home-container">
-                <h2>Info Pratique</h2>
+                <h2 style="font-family: 'Avenir', sans-serif;">Info Pratique</h2>
                 <p>Toutes les informations pratiques pour utiliser notre plateforme.</p>
             </div>
         </div>
-        <br><br><br>
+        <br>
+        <p><button class="DarkMode" onclick="DarkMode()">assombrir</button></p>
+        <script>
+             function DarkMode() {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+              }   
+        </script>
         <footer>
             <p>&copy; 2024 - Agora Francia - Tous droits réservés - <a href="mentions-legales.html">Mentions légales</a></p>
             <p>Développement et design par l'équipe 104</p>

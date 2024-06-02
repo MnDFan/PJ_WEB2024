@@ -1,5 +1,10 @@
 <?php
 session_start();
+$date = date('y-m-d');
+$date_modif = date_parse($date);
+$jour = $date_modif['day'];
+$mois = $date_modif['month'];
+$jour= (int)$jour;
 // Connexion à la base de données
 $database = "agora";
 $db_handle = mysqli_connect('localhost', 'root', '');
@@ -110,7 +115,7 @@ if ($db_found) {
 <body>
     <div class="wrapper">
         <div>
-            <h1 class="logo" align="center"><a href="../accueil.php"><img src="../Images/logo-agora.png" height="140px"></a></h1>
+            <h1 class="logo" align="center"><a href="index.html"><img src="../Images/logo-agora.png" height="140px"></a></h1>
         </div>
         <br>
         <ul class="dropdownmenu">
@@ -149,12 +154,35 @@ if ($db_found) {
                                         $meilleureoffre = $data['PrixPropose'];
                                     }
                                 } ?>
+                                <?php $date_offre = date_parse($article['Date_fin']);
+                            $jour_fin = $date_offre['day'];
+                            $mois_fin = $date_offre['month'];
+                            $jour_fin =(int)$jour_fin;
+                            $mois_fin = (int)$mois_fin;?>
+                            <h3><div class="date">Date début offre: <?php echo htmlspecialchars($article['Date_debut'])?></div></h3>
+                            <h3><div class="date">Date fin offre: <?php echo htmlspecialchars($article['Date_fin'])?></div></h3>
                                 <h3><div class="meilleure_offreoffre">Meilleure offre : <?php echo htmlspecialchars($meilleureoffre); ?>€</div></h3>
                         <?php endif ?>
                     </div>
                 </div><br><br><br>
+  
                 <div class="buttons form-container">
                     <?php if($article['Type'] == 'Meilleure offre'): ?>
+                        <?php if ($jour_fin == $jour AND $mois_fin == $mois):?>
+                            <table>
+                                <tr>
+                                    <td><button name="Valider">Offre terminé</button></td>
+                                    <?php if(isset($_SESSION['LOGGED_ADMIN'])):?>
+                                    <form action="../meilleure_offre/finaliser_offre_bdd.php" method="post">
+                                    <td><button type="submit" name="Valider">Finaliser l'offre</button></td>
+                                    <?php if(isset($_SESSION['Gagnant'])):?>
+                                        l'acheteur avec l'id <?php echo $_SESSION['Gagnant']?> a remporté le produit
+                                    <?php endif?>
+                                <?php endif?>
+                                </tr>
+                            </table>
+                        </form>                    
+                        <?php else:?>
                         <?php $_SESSION['Objet'] = $article['Nom'];
                         $_SESSION['IDobjet'] = $article['ID_objet']; ?>
                         <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
@@ -167,9 +195,11 @@ if ($db_found) {
                                 </tr>
                             </table>
                         </form>
+
                     <?php else :?>
                         <a href="../compte.php"><button>Se connecter</button></a>
                     <?php endif ?>
+                    <?php endif?>
                     <?php elseif ($article['Type'] == 'Achat immediat'): ?>
                         <?php if ($_SESSION['Confirmation'] == 1) : ?>
                             Achat réussi !

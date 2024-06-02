@@ -1,7 +1,7 @@
 /* CORPS */
 @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 
-body {
+body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -9,6 +9,29 @@ body {
     padding: 0;
     font-family: Avenir, sans-serif;
     background-color: #F6F4F0;
+}
+body.dark-mode {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Avenir, sans-serif;
+    background-color: #050921;
+}
+.DarkMode{
+position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #37496B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: Avenir, sans-serif;
 }
 
 .wrapper {
@@ -59,6 +82,7 @@ body {
 .dropdownmenu > li:hover > a {
     background-color: #283655;
     color: #FFF;
+    border-radius: 5px;
 }
 
 .dropdownmenu ul {
@@ -78,6 +102,7 @@ body {
 
 .dropdownmenu li:hover > ul {
     display: block;
+    border-radius: 6px;
 }
 
 .dropdownmenu ul li {
@@ -91,13 +116,14 @@ body {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 5px;
-    font-family: 'Passion One', cursive; /* Applique la police Passion One aux sous-menus */
-    font-size: 20px; /* Assure une taille de police cohérente pour les sous-menus */
+    font-family: 'Passion One', cursive; 
+    font-size: 20px;
 }
 
 .dropdownmenu ul li a:hover {
     background-color: #283655;
     color: #FFF;
+    border-radius: 10px;
 }
 
 /* TEXTES */
@@ -105,7 +131,7 @@ h1 {
     font-family: "Bahnschrift SemiBold", serif;
     font-size: 34px;
     margin: auto;
-    padding: 10px; /* Réduit l'espacement autour du logo */
+    padding: 10px;
     color: black;
     border: none;
     text-align: center;
@@ -177,9 +203,15 @@ table {
     table-layout: 50px;
 }
 
+#notifss {
+    border-radius: 10;
+}
+
 th {
-    border: 2px solid black;
-    padding: 50px;
+    font-family: "Avenir", sans-serif;
+    border-radius: 5px;
+    border: 2px solid white;
+    padding: 11px;
     text-align: center;
     color: white;
     background-color: #37496B;
@@ -238,6 +270,15 @@ footer a:hover {
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.form-container.dark-mode{
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -309,4 +350,38 @@ footer a:hover {
     text-align: center;
     font-family: Avenir, sans-serif;
     font-size: 14px;
+}
+
+#mentionslegales {
+    padding-left: 50px;
+   text-align: left;
+    font-weight: bold;
+    color: #37496B;
+    font-family: "Avenir", sans-serif;
+}
+
+#commanderB {
+    background-color: #F9D664;
+    color: black;
+    background-color: #283655;
+    color: #FFF;
+
+}
+
+#commanderB:hover {
+    background-color: #F9D664;
+    color: black;
+}
+select {
+    width: 35%;
+    padding: 2px;
+    margin-top: 4px;
+    background-color: #37496B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Avenir, sans-serif;
 }

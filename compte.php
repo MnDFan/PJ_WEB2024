@@ -13,7 +13,14 @@ $_SESSION['Postal'] = '';
 $_SESSION['Pays'] = '';
 $_SESSION['Tel'] = '';
 $_SESSION['Login'] = '';
-$_SESSION['REMPLIR'] = '';?>
+$_SESSION['REMPLIR'] = '';
+$_SESSION['Description'] = '';
+$_SESSION['Prix'] = '';
+$_SESSION['Type'] = '';
+$_SESSION['Categorie'] = '';
+$_SESSION['Photo_objet'] = '';
+$_SESSION['Date_debut'] = '';
+$_SESSION['Date_fin'] = '';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +31,7 @@ $_SESSION['REMPLIR'] = '';?>
 <body>
     <div class="wrapper">
         <div>
-            <h1 class="logo" align="center"><a href="../accueil.php"><img src="Images/logo-agora.png" height="140px"></a></h1>
+            <h1 class="logo" align="center"><a href="accueil.php"><img src="Images/logo-agora.png" height="140px"></a></h1>
         </div>
         <br>
         <ul class="dropdownmenu">
@@ -40,7 +47,7 @@ $_SESSION['REMPLIR'] = '';?>
             <li><a href="panier.php">PANIER</a></li>
             <li><a href="compte.php">COMPTE</a></li>
         </ul>
-        <br><br><br>
+        <br>
         <div class="content">
             <div class="form-container">
                             
@@ -62,6 +69,10 @@ $_SESSION['REMPLIR'] = '';?>
         </br>
         <form action="connexion/ajouter_objet.php">
             <button type="submit">Ajouter un produit</button>
+        </form>
+        </br>
+        <form action="connexion/ajouter_objet.php">
+            <button type="submit">Produits meilleure offre</button>
         </form>
         </br>
         <form action="connexion/logout.php">
@@ -89,7 +100,9 @@ $_SESSION['REMPLIR'] = '';?>
 
     <?php else: ?>
         <?php $_SESSION['ID_VENDEUR'] = '';?>
-        <h3 class="form-title">Connexion à un compte</h3>
+
+        <h1 style="font-family: 'Avenir', sans-serif;">Connexion à un compte</h3>
+    <div class="form-container">
         <form action="connexion/login_acheteur.php" method="post">
             <table>
                 <tr>
@@ -111,9 +124,18 @@ $_SESSION['REMPLIR'] = '';?>
         <?php endif; ?>
         </div>
         </div>
-        <br><br><br>
+        <br>
+        <p><button class="DarkMode" onclick="DarkMode()">assombrir</button></p>
+        <script>
+             function DarkMode() {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+              }   
+        </script>
         
         <footer>
+            
+
             <p>&copy; 2024 - Agora Francia - Tous droits réservés - <a href="mentions-legales.html">Mentions légales</a></p>
             <p>Développement et design par l'équipe 104</p>
         </footer>

@@ -14,7 +14,7 @@ if ($db_found) {
             FROM panier
             JOIN objet ON panier.ID_objet = objet.ID_objet";
             /*WHERE panier.user_id = '$user_id'";*/
-			//type de vente : modifier nom dans bdd
+            //type de vente : modifier nom dans bdd
     $cart_result = mysqli_query($db_handle, $sql);
 }
 }
@@ -31,7 +31,7 @@ if ($db_found) {
 <body>
     <div class="wrapper">
         <div>
-            <h1 class="logo" align="center"><a href="../accueil.php"><img src="./Images/logo-agora.png" height="140px"></a></h1>
+            <h1 class="logo" align="center"><a href="index.html"><img src="./Images/logo-agora.png" height="140px"></a></h1>
         </div>
         <br>
         <ul class="dropdownmenu">
@@ -82,15 +82,23 @@ if ($db_found) {
             }
             ?>
         </form>
-            <h2>Sous-total : <?php echo $subtotal; ?> €</h2>
+           <h3 style="font-family: 'Avenir', sans-serif;">Sous-total : <?php echo $subtotal; ?> € </h2>
             <form action="paiement.php" method="post">
-                <input type="submit" value="Commander">
+                <button id="commanderB"type="submit" name="Commander">Commander</button>
             </form>
             <?php else :?>
                         <a href="compte.php"><button>Se connecter</button></a>
                 <?php endif ?>
                 </div>
         </div>
+        <br>
+        <p><button class="DarkMode" onclick="DarkMode()">assombrir</button></p>
+        <script>
+             function DarkMode() {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+              }   
+        </script>
         <footer>
             <p>&copy; 2024 - Agora Francia - Tous droits réservés - <a href="mentions-legales.html">Mentions légales</a></p>
             <p>Développement et design par l'équipe 104</p>

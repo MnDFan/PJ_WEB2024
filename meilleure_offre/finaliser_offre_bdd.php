@@ -1,17 +1,15 @@
 <?php
 session_start();
-$_SESSION['Confirmation'] = 0;
 function redirectToUrl(string $url): never //Fonction pour retourner sur la page index
 {
     header("Location: {$url}");
     exit();
 }
-$nomobjet = $_SESSION['Objet'];
-$IDobjet = $_SESSION['IDobjet'];
-$user_id = $_SESSION['ID_ACHETEUR'];
-$offre = isset($_POST["offre"])? $_POST["offre"] : "";  //Vérifie que les logins et le mdp ne soient pas vide
-$offre = (int)$offre;
-
+$premier_prix = 0;
+$second_prix = 0;
+$id = $_SESSION['ID'];
+$id_gagnant = 0;
+$_SESSION['Gagnant'] = 0;
 //identifier le nom de base de données
 $database = "agora";
 //connectez-vous dans votre BDD
@@ -19,14 +17,19 @@ $database = "agora";
 $db_handle = mysqli_connect('localhost', 'root', '' );
 $db_found = mysqli_select_db($db_handle, $database);
 if ($db_found) {
-		$sql = "INSERT INTO meilleureoffre (NomObjet,ID_acheteur,PrixPropose,ID_objet) VALUES ('$nomobjet','$user_id','$offre','$IDobjet');";
+		$sql = "SELECT * FROM meilleureoffre WHERE ID_objet = '$id';" ;
 		$result = mysqli_query($db_handle, $sql);
-		$_SESSION['Confirmation'] = 1;
-		$sql1 = "INSERT INTO panier (ID_acheteur,ID_objet) VALUES ('$user_id','$IDobjet');" ;
-		$result1 = mysqli_query($db_handle, $sql1);
-		$_SESSION['Confirmation_panier'] = 1;
+		while ($data = mysqli_fetch_assoc($result)) {
+			if($premier_prix < $data['PrixPropose']){
+				$second_prix = $premier_prix;
+				$premier_prix = $data['PrixPropose'];
+				$id_gagnant = $data['ID_acheteur'];
+
+
+			}
  		}
-else {
+ 		$_SESSION['Gagnant'] = $id_gagnant;
+}else {
  	echo "Database not found";
  }
 redirectToUrl('../article/article.php');   //Redirige automatiquement vers la page index

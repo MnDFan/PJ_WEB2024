@@ -42,6 +42,7 @@ if ($db_found) {
 				if ( $data['Login'] == $login && $data['Password'] == $pass ) {  //Deuxième vérification
 					if($choice == 1){
 						$_SESSION['LOGGED_ADMIN'] = $data['Login']; //Permet de prendre le nom de l'utilisateur
+						$_SESSION['ID_VENDEUR'] = $data['ID_admin'];
 					} else {
 						$_SESSION['LOGGED_VENDEUR'] = $data['Login'];
 						$_SESSION['ID_VENDEUR'] = $data['ID_vendeur'];

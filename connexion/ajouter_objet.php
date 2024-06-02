@@ -9,7 +9,7 @@
 <body>
     <div class="wrapper">
         <div>
-            <h1 class="logo" align="center"><a href="../accueil.php"><img src="../Images/logo-agora.png" height="140px"></a></h1>
+            <h1 class="logo" align="center"><a href="index.html"><img src="../Images/logo-agora.png" height="140px"></a></h1>
         </div>
         <br>
         <ul class="dropdownmenu">
@@ -25,7 +25,7 @@
             <li><a href="../panier.php">PANIER</a></li>
             <li><a href="../compte.php">COMPTE</a></li>
         </ul>
-		<br><br><br>
+        <br><br><br>
 
         <div class="content">
             <?php if ($_SESSION['REMPLIR'] == 'ok') : ?>
@@ -48,15 +48,6 @@
                             <td><input type="number" name="prix"></td>
                         </tr>
                          <tr>
-                            <td>Type :</td>
-                            <td><input list="type_liste" name="type">
-                                <datalist id="type_liste">
-                                <option value="Meilleure offre">
-                                <option value="Achat immediat">
-                                <option value="Transaction">
-                            </datalist></td>
-                        </tr>
-                        <tr>
                             <td>Catégorie :</td>
                             <td><input list="categorie_liste" name="categorie">
                                 <datalist id="categorie_liste">
@@ -66,11 +57,28 @@
                             </datalist></td>
                         </tr>
                          <tr>
+                            <td>Type :</td>
+                            <td><input list="type_liste" name="type">
+                                <datalist id="type_liste">
+                                <option value="Meilleure offre">
+                                <option value="Achat immediat">
+                                <option value="Transaction">
+                            </datalist></td>
+                        </tr>
+                        <tr>
+                            <td>Date début si meilleure offre :</td>
+                            <td><input type="date" name="date_debut"></td>
+                        </tr>
+                        <tr>
+                            <td>Date de fin si meilleure offre :</td>
+                            <td><input type="date" name="date_fin"></td>
+                        </tr>
+                         <tr>
                             <td>Photo :</td>
                             <td><input type="text" name="photo"></td>
                         </tr>
                     </table>
-							<br>
+                            <br>
                     <button type="submit" name="Valider">Valider</button>
                 </form>
                 
@@ -84,18 +92,26 @@
                 <?php if (isset($_SESSION['Prix'])) : ?>
                     <p class="error-message"><?php echo  $_SESSION['Prix']; ?></p>
                 <?php endif; ?>
-                <?php if (isset($_SESSION['Type'])) : ?>
-                    <p class="error-message"><?php echo  $_SESSION['Type']; ?></p>
-                <?php endif; ?>
-                <?php if (isset($_SESSION['Categorie'])) : ?>
+                 <?php if (isset($_SESSION['Categorie'])) : ?>
                     <p class="error-message"><?php echo  $_SESSION['Categorie']; ?></p>
                 <?php endif; ?>
-                <?php if (isset($_SESSION['Photo'])) : ?>
-                    <p class="error-message"><?php echo  $_SESSION['Photo']; ?></p>
+                <?php if (isset($_SESSION['Type'])) : ?>
+                    <p class="error-message"><?php echo  $_SESSION['Type']; ?></p>
+                    <?php endif; ?>
+                <?php if($_SESSION['Type'] = 'Meilleure offre') :?>
+                    <?php if (isset($_SESSION['Date_debut'])) : ?>
+                    <p class="error-message"><?php echo  $_SESSION['Date_debut']; ?></p>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['Date_fin'])) : ?>
+                    <p class="error-message"><?php echo  $_SESSION['Date_fin']; ?></p>
+                <?php endif; ?>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['Photo_objet'])) : ?>
+                    <p class="error-message"><?php echo  $_SESSION['Photo_objet']; ?></p>
                 <?php endif; ?>
             </div>
         </div>
-				<br><br><br>
+                <br><br><br>
 
         <footer>
             <p>&copy; 2024 - Agora Francia - Tous droits réservés - <a href="mentions-legales.html">Mentions légales</a></p>

@@ -3,10 +3,11 @@ session_start();
 $_SESSION['Nom'] = '';
 $_SESSION['Description'] = '';
 $_SESSION['Prix'] = '';
-//J'ai rajouté Login et REMPLIR
 $_SESSION['Type'] = '';
 $_SESSION['Categorie'] = '';
-$_SESSION['Photo'] = '';
+$_SESSION['Photo_objet'] = '';
+$_SESSION['Date_debut'] = '';
+$_SESSION['Date_fin'] = '';
 
 function redirectToUrl(string $url): never //Fonction pour retourner sur la page index
 {
@@ -22,7 +23,9 @@ function redirectToUrl(string $url): never //Fonction pour retourner sur la page
 	$type = isset($_POST["type"])? $_POST["type"] : "";
 	$categorie = isset($_POST["categorie"])? $_POST["categorie"] : "";
 	$photo = isset($_POST["photo"])? $_POST["photo"] : "";
-	if($nom == "" OR $description == "" OR $prix == "" OR $type == "" OR $categorie == "" OR $photo == ""){
+	$date_debut = isset($_POST["date_debut"])? $_POST["date_debut"] : "";
+	$date_fin = isset($_POST["date_fin"])? $_POST["date_fin"] : "";
+	if($nom == "" OR $description == "" OR $prix == "" OR $type == "" OR $categorie == "" OR $photo == "" ){
 		if ($nom == "") {
 			$_SESSION['Nom']= "Il faut remplir le nom";
 		}
@@ -35,12 +38,22 @@ function redirectToUrl(string $url): never //Fonction pour retourner sur la page
 	if ($type == "") {
 		$_SESSION['Type']= 'Il faut remplir le type';
 	}
+	if($type == "Meilleure offre") {
+	if ($date_debut == "") {
+		$_SESSION['Date_debut']= 'Il faut remplir la date de debut';
+	}
+	if ($date_fin == "") {
+		$_SESSION['Date_fin']= 'Il faut remplir la date de fin';
+	}
+}
 	if ($categorie == "") {
 		$_SESSION['Categorie']= 'Il faut remplir la categorie';
 	}
+	
 	if ($photo == "") {
-		$_SESSION['Photo']= 'Il faut remplir la photo';
+		$_SESSION['Photo_objet']= 'Il faut remplir la photo';
 	}
+	
    redirectToUrl('ajouter_objet.php');
 
 } else {
@@ -67,10 +80,7 @@ if ($db_found) {
 		else if ($rows ==0){
 			if($_SESSION['ID_VENDEUR'] !=''){
 				$id = $_SESSION['ID_VENDEUR'];
-			$sql = "INSERT INTO objet (Nom,Description,Prix,Type,Categorie,Photo,IDvendeur) VALUES ('$nom','$description','$prix','$type','$categorie','$photo','$id')";
-			$result = mysqli_query($db_handle, $sql);
-			} else {
-				$sql = "INSERT INTO objet (Nom,Description,Prix,Type,Categorie,Photo) VALUES ('$nom','$description','$prix','$type','$categorie','$photo')";
+			$sql = "INSERT INTO objet (Nom,Description,Prix,Type,Categorie,Photo,IDvendeur,Date_debut,Date_fin) VALUES ('$nom','$description','$prix','$type','$categorie','$photo','$id','$date_debut','$date_fin')";
 			$result = mysqli_query($db_handle, $sql);
 			}
 			}
