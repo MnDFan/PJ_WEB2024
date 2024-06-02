@@ -1,0 +1,389 @@
+/* CORPS */
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Avenir, sans-serif;
+    background-color: #F6F4F0;
+}
+body.dark-mode {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Avenir, sans-serif;
+    background-color: #050921;
+}
+.DarkMode{
+position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #37496B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: Avenir, sans-serif;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONTENT */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* HEADER */
+.dropdownmenu {
+    background-color: #37496B;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    margin: 5px auto 0; /* Réduit encore l'espace entre le logo et le menu */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+    z-index: 1000; /* Assure que le menu est au-dessus d'autres éléments */
+
+}
+
+.dropdownmenu > li {
+    position: relative;
+    margin: 0 40px; /* Augmente encore plus l'espacement entre les éléments du menu */
+}
+
+.dropdownmenu > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Passion One', cursive; /* Applique la police Passion One au menu */
+    font-size: 22px; /* Augmente la taille de la police */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.dropdownmenu > li:hover > a {
+    background-color: #283655;
+    color: #FFF;
+    border-radius: 5px;
+}
+
+.dropdownmenu ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #37496B;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownmenu li:hover > ul {
+    display: block;
+    border-radius: 6px;
+}
+
+.dropdownmenu ul li {
+    margin: 0;
+}
+
+.dropdownmenu ul li a {
+    padding: 10px 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+    font-family: 'Passion One', cursive; 
+    font-size: 20px;
+}
+
+.dropdownmenu ul li a:hover {
+    background-color: #283655;
+    color: #FFF;
+    border-radius: 10px;
+}
+
+/* TEXTES */
+h1 {
+    font-family: "Bahnschrift SemiBold", serif;
+    font-size: 34px;
+    margin: auto;
+    padding: 10px;
+    color: black;
+    border: none;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Bahnschrift SemiBold", serif;
+    font-size: 34px;
+    margin: auto;
+    padding: 40px;
+    color: black;
+    border: none;
+    text-align: left;
+}
+
+p {
+    font-family: "Calibri", serif;
+    font-size: 14px;
+    border: none;
+    text-align: center;
+}
+
+h5 {
+    font-family: "Bahnschrift SemiBold", serif;
+    font-size: 34px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+h6 {
+    font-family: "Calibri", serif;
+    font-size: 15px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+h7 {
+    font-family: "Helvetica", serif;
+    font-size: 25px;
+    margin: 0;
+    color: grey;
+    border: none;
+    font-style: italic;
+}
+
+h8 {
+    font-family: "Impact", serif;
+    font-size: 55px;
+    margin: 0;
+    color: white;
+    border: none;
+    font-style: bold;
+}
+
+h9 {
+    font-family: "Georgia", sans-serif;
+    font-size: 20px;
+    margin: 0;
+    color: white;
+    border: none;
+}
+
+table {
+    font-family: "Bahnschrift SemiBold", serif;
+    border-collapse: collapse;
+    margin: auto;
+    table-layout: 50px;
+}
+
+#notifss {
+    border-radius: 10;
+}
+
+th {
+    font-family: "Avenir", sans-serif;
+    border-radius: 5px;
+    border: 2px solid white;
+    padding: 11px;
+    text-align: center;
+    color: white;
+    background-color: #37496B;
+}
+
+td {
+    border: 2px solid black;
+    padding: 50px;
+    text-align: center;
+    color: black;
+}
+
+/* FOOTER */
+footer {
+    background-color: #37496B;
+    padding: 30px;
+    text-align: center;
+    color: white;
+	font-size: 18px; /* Augmente la taille de la police */
+    width: 91%;
+    margin: 20px auto 0; /* Espacement pour le footer */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin-bottom:40px;
+}
+
+
+footer a {
+    color: white; /* Rend les liens en blanc */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline; /* Ajoute une décoration de soulignement au survol */
+}
+
+#leftcolumn {
+    padding-top: 50px;
+    width: 150px;
+    float: left;
+}
+
+#leftcolumn a {
+    display: block;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    border-block: solid black;
+}
+
+/* Formulaire */
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.form-container.dark-mode{
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.form-container td {
+    padding: 10px;
+    border: none;
+}
+
+.form-container input[type="text"], 
+.form-container input[type="password"], 
+.form-container input[type="number"], 
+.form-container input[list="type_liste"], 
+.form-container input[list="categorie_liste"], 
+.form-container input[list="type_carte_liste"], 
+.form-container input[type="date"],
+.form-container input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 15px;
+    background-color: #37496B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Avenir, sans-serif;
+}
+
+.form-container button:hover {
+    background-color: #283655;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #37496B;
+    font-family: "Bahnschrift SemiBold", serif;
+}
+
+.form-container td:first-child {
+    text-align: right;
+    font-weight: bold;
+    color: #37496B;
+    font-family: "Bahnschrift SemiBold", serif;
+}
+
+.form-container td:last-child {
+    text-align: left;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
+}
+
+#mentionslegales {
+    padding-left: 50px;
+   text-align: left;
+    font-weight: bold;
+    color: #37496B;
+    font-family: "Avenir", sans-serif;
+}
+
+#commanderB {
+    background-color: #F9D664;
+    color: black;
+    background-color: #283655;
+    color: #FFF;
+
+}
+
+#commanderB:hover {
+    background-color: #F9D664;
+    color: black;
+}
+select {
+    width: 35%;
+    padding: 2px;
+    margin-top: 4px;
+    background-color: #37496B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Avenir, sans-serif;
+}
