@@ -42,10 +42,12 @@ if ($db_found) {
 				if ( $data['Login'] == $login && $data['Password'] == $pass ) {  //Deuxième vérification
 					if($choice == 1){
 						$_SESSION['LOGGED_ADMIN'] = $data['Login']; //Permet de prendre le nom de l'utilisateur
-						$_SESSION['ID_VENDEUR'] = $data['ID_admin'];
+						$_SESSION['ID_ADMIN'] = $data['ID_admin'];
+						$_SESSION['ID_VENDEUR'] = '';
 					} else {
 						$_SESSION['LOGGED_VENDEUR'] = $data['Login'];
 						$_SESSION['ID_VENDEUR'] = $data['ID_vendeur'];
+						$_SESSION['ID_ADMIN'] = '';
 						$_SESSION['Background'] = $data['Fond'];
 						$_SESSION['Photo'] = $data['Photo'];
 					}

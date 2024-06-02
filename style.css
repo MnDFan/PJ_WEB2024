@@ -298,6 +298,8 @@ footer a:hover {
 .form-container input[type="number"], 
 .form-container input[list="type_liste"], 
 .form-container input[list="categorie_liste"], 
+.form-container input[list="type_carte_liste"], 
+.form-container input[type="date"],
 .form-container input[type="tel"] {
     width: 100%;
     padding: 10px;

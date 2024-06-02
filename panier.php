@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['REMPLIR'] = '';
 $database = "agora";
 
 $db_handle = mysqli_connect('localhost', 'root', ''); //ENLEVER ROOT EN MDP

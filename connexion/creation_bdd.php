@@ -9,8 +9,13 @@ $_SESSION['Ville'] = '';
 $_SESSION['Postal'] = '';
 $_SESSION['Pays'] = '';
 $_SESSION['Tel'] = '';
-//J'ai rajouté Login et REMPLIR
 $_SESSION['Login'] = '';
+$_SESSION['Numcarte'] = '';
+$_SESSION['Typecarte'] = '';
+$_SESSION['Nomcarte'] = '';
+$_SESSION['Expirecarte'] = '';
+$_SESSION['CVV'] = '';
+
 $_SESSION['REMPLIR'] = '';
 
 function redirectToUrl(string $url): never //Fonction pour retourner sur la page index
@@ -32,7 +37,12 @@ function redirectToUrl(string $url): never //Fonction pour retourner sur la page
 	$postal = isset($_POST["postal"])? $_POST["postal"] : "";
 	$pays = isset($_POST["pays"])? $_POST["pays"] : "";
 	$tel = isset($_POST["telephone"])? $_POST["telephone"] : "";
-	if($pass == "" OR $login == "" OR $nom == "" OR $prenom == "" OR $adresse1 == "" OR $adresse2 == "" OR $ville == "" OR $postal == "" OR $pays == "" OR $tel == ""){
+	$typecarte = isset($_POST["type_carte"])? $_POST["type_carte"] : "";
+	$numcarte = isset($_POST["numcarte"])? $_POST["numcarte"] : "";
+	$nomcarte = isset($_POST["nomcarte"])? $_POST["nomcarte"] : "";
+	$expirecarte = isset($_POST["expirationcarte"])? $_POST["expirationcarte"] : "";
+	$cvv = isset($_POST["cvv"])? $_POST["cvv"] : "";
+	if($pass == "" OR $login == "" OR $nom == "" OR $prenom == "" OR $adresse1 == "" OR $ville == "" OR $postal == "" OR $pays == "" OR $tel == "" OR $typecarte == "" OR $numcarte == "" OR $nomcarte == "" OR $expirecarte == "" OR $cvv == ""){
 		if ($login == "") {
 			$_SESSION['Login']= "Il faut remplir l'email";
 		}
@@ -68,9 +78,21 @@ function redirectToUrl(string $url): never //Fonction pour retourner sur la page
 	if ($tel == "") {
 		$_SESSION['Tel']= 'Il faut remplir le tel';
 	}
-	if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) AND $login != "") {
-    	$_SESSION['Erreurmail'] = 'Il vous faut un e-mail valide';
-   }
+	if ($typecarte == "") {
+		$_SESSION['Typecarte']= "Il faut remplir le type de carte";
+	}
+	if ($numcarte == "") {
+		$_SESSION['Numcarte']= 'Il faut remplir le numero de la carte';
+	}
+	if ($nomcarte == "") {
+		$_SESSION['Nomcarte']= 'Il faut remplir le nom de la carte';
+	}
+	if ($expirecarte == "") {
+		$_SESSION['Expirecarte']= "Il faut remplir la date d'expiration";
+	}
+	if ($cvv == "") {
+		$_SESSION['CVV']= 'Il faut remplir le CVV';
+	}
    redirectToUrl('creation.php');
 
 } else {
@@ -94,7 +116,7 @@ if ($db_found) {
 			echo "Le compte existe déjà";
 			}
 		else if ($rows ==0){
-			$sql = "INSERT INTO acheteur (Nom,Prenom,AdresseLigne1,AdresseLigne2,Ville,Postal,Pays,NumTel,Email,Password) VALUES ( '$nom', '$prenom', '$adresse1', '$adresse2', '$ville', '$postal', '$pays', '$tel', '$login', '$pass');";
+			$sql = "INSERT INTO acheteur (Pseudo,Nom,Prenom,Adresseligne1,Adresseligne2,Ville,Postal,Pays,NumTel,Email,Password,Type_carte,NumCarte,NomCarte,DateExpiration,CodeSecu) VALUES ('$pseudo','$nom', '$prenom', '$adresse1', '$adresse2', '$ville', '$postal', '$pays', '$tel', '$login', '$pass','$typecarte','$numcarte','$nomcarte','$expirecarte','$cvv');";
 			$result = mysqli_query($db_handle, $sql);
 			
 			}

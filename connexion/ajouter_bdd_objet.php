@@ -69,23 +69,16 @@ $sql1 = "";
 $sql = "";
 
 if ($db_found) {
-      	$sql1 = "SELECT * FROM objet WHERE Nom = '$nom' AND Description = '$description' AND Prix = '$prix' AND Type = '$type' AND Categorie = '$categorie' AND Photo = '$photo'"; ;
-		$result1 = mysqli_query($db_handle, $sql1);
-		$rows = mysqli_num_rows($result1);
-		if($rows == 1){
-			echo "Le compte existe déjà";
-			$_SESSION['REMPLIR'] = '';
-
-			}
-		else if ($rows ==0){
-			if($_SESSION['ID_VENDEUR'] !=''){
+			if($_SESSION['ID_VENDEUR'] ==''){
+				$id = $_SESSION['ID_ADMIN'];
+			$sql = "INSERT INTO objet (Nom,Description,Prix,Type,Categorie,Photo,IDadmin,Date_debut,Date_fin) VALUES ('$nom','$description','$prix','$type','$categorie','$photo','$id','$date_debut','$date_fin')";
+			$result = mysqli_query($db_handle, $sql);
+			} else{
 				$id = $_SESSION['ID_VENDEUR'];
 			$sql = "INSERT INTO objet (Nom,Description,Prix,Type,Categorie,Photo,IDvendeur,Date_debut,Date_fin) VALUES ('$nom','$description','$prix','$type','$categorie','$photo','$id','$date_debut','$date_fin')";
 			$result = mysqli_query($db_handle, $sql);
 			}
-			}
-		}
-else {
+		}else {
 	echo "Database not found";
 }
 redirectToUrl('ajouter_objet.php');

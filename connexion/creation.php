@@ -79,6 +79,32 @@
                             <td>Numéro de téléphone :</td>
                             <td><input type="tel" name="telephone"></td>
                         </tr>
+                        <tr>
+                             <td>Type de carte :</td>
+                            <td><input list="type_carte_liste" name="type_carte">
+                                <datalist id="type_carte_liste">
+                                <option value="VISA">
+                                <option value="Master Card">
+                                <option value="Amex">
+                                <option value="Paypal">
+                            </datalist></td>
+                        </tr>
+                        <tr>
+                            <td>Numéro de carte :</td>
+                            <td><input type="number" name="numcarte"></td>
+                        </tr>
+                        <tr>
+                            <td>Nom sur la carte :</td>
+                            <td><input type="text" name="nomcarte"></td>
+                        </tr>
+                        <tr>
+                            <td>Expire :</td>
+                            <td><input type="date" name="expirationcarte"></td>
+                        </tr>
+                        <tr>
+                            <td>CVV :</td>
+                            <td><input type="number" name="cvv"></td>
+                        </tr>
                     </table>
 							<br>
                     <button type="submit" name="Valider">Valider</button>
@@ -115,6 +141,21 @@
     <?php endif; ?>
     <?php if (isset($_SESSION['Tel'])) : ?>
         <p class="error-message"><?php echo $_SESSION['Tel']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Typecarte'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Typecarte']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Numcarte'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Numcarte']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Nomcarte'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Nomcarte']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['Expirecarte'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['Expirecarte']; ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['CVV'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['CVV']; ?></p>
     <?php endif; ?>
             </div>
         </div>

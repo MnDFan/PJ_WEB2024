@@ -29,7 +29,7 @@
 
         <div class="content">
             <?php if ($_SESSION['REMPLIR'] == 'ok') : ?>
-                Ajout de l'objet réussi réussi <?php echo $_SESSION['REMPLIR'];?>
+                Ajout de l'objet réussi réussi
             <?php else: ?>
             <div class="form-container">
                 <h3 class="form-title">Ajouter un objet</h3>
@@ -51,9 +51,9 @@
                             <td>Catégorie :</td>
                             <td><input list="categorie_liste" name="categorie">
                                 <datalist id="categorie_liste">
-                                <option value="Meilleure offre">
-                                <option value="Achat immediat">
-                                <option value="Transaction">
+                                <option value="Articles rare">
+                                <option value="Articles hautes de gamme">
+                                <option value="Articles réguliers">
                             </datalist></td>
                         </tr>
                          <tr>
@@ -98,7 +98,7 @@
                 <?php if (isset($_SESSION['Type'])) : ?>
                     <p class="error-message"><?php echo  $_SESSION['Type']; ?></p>
                     <?php endif; ?>
-                <?php if($_SESSION['Type'] = 'Meilleure offre') :?>
+                <?php if($_SESSION['Type'] = '') :?>
                     <?php if (isset($_SESSION['Date_debut'])) : ?>
                     <p class="error-message"><?php echo  $_SESSION['Date_debut']; ?></p>
                 <?php endif; ?>

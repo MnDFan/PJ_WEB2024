@@ -143,7 +143,11 @@ if ($db_found) {
                     </div>
                     <div class="article-details">
                         <h3><div class="prix">Prix : <?php echo htmlspecialchars($article['Prix']); ?>€</div></h3>
+                        <?php if($article['IDvendeur'] != '') : ?>
                         <h3><div class="vendeur">Identifiant vendeur : <?php echo htmlspecialchars($article['IDvendeur']); ?></div></h3>
+                    <?php else:?>
+                        <h3><div class="vendeur">Identifiant vendeur : <?php echo htmlspecialchars($article['IDadmin']); ?></div></h3>
+                    <?php endif ?>
                         <h3><div class="categorie">Catégorie : <?php echo htmlspecialchars($article['Categorie']); ?></div></h3>
                         <?php if($article['Type'] == 'Meilleure offre'): ?>
                             <?php $meilleureoffre = 0;?>

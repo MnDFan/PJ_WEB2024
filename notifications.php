@@ -62,6 +62,7 @@ if ($db_found) {
         </ul>
         <br>
         <div class="content">
+            <h1>Notifications</h1>
             <div class="form-container">
                 <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
             <h1 style="font-family: 'Avenir', sans-serif;">Créer une alerte</h1>
@@ -69,8 +70,8 @@ if ($db_found) {
             <form method="post" action="">
                 <label for="type_article">Type d'article :</label>
                 <select id="type_article" name="type_article" required>
-                    <option value="Articles hauts de gamme">Articles hauts de gamme</option>
-                    <option value="Articles rares">Articles rares</option>
+                    <option value="Articles hauts de gamme">Articles hautes de gamme</option>
+                    <option value="Articles rares">Articles rare</option>
                     <option value="Articles réguliers">Articles réguliers</option>
                 </select><br>
                 <label for="type_achat">Type d'achat : </label>
@@ -148,7 +149,7 @@ if ($db_found) {
                             echo "<div>";
                             echo "<img src='" . $product["Photo"] . "' alt='Photo de l'article' width='100'><br>";
                             echo "<strong>" . $product["Nom"] . "</strong><br>";
-                            echo $product["description"] . "<br>";
+                            echo $product["Description"] . "<br>";
                             echo "Prix : " . $product["Prix"] . " €<br>";
                             echo "</div><hr>";
                         }

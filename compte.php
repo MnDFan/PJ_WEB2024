@@ -71,14 +71,15 @@ $_SESSION['Date_fin'] = '';?>
             <button type="submit">Ajouter un produit</button>
         </form>
         </br>
-        <form action="connexion/ajouter_objet.php">
-            <button type="submit">Produits meilleure offre</button>
+        <form action="connexion/supprimer_objet.php">
+            <button type="submit">Liste de mes produit</button>
         </form>
         </br>
         <form action="connexion/logout.php">
             <button type="submit">Déconnexion</button>
         </form>
     <?php elseif (isset($_SESSION['LOGGED_VENDEUR'])) : ?>
+        <?php $_SESSION['ID_ADMIN'] = '';?>
         <style>
             body {
                 background: url('<?php echo $_SESSION['Background'] ?>');
@@ -91,7 +92,7 @@ $_SESSION['Date_fin'] = '';?>
         </form>
     </br>
         <form action="connexion/supprimer_objet.php">
-            <button type="submit">Supprimer un produit</button>
+            <button type="submit">Liste de mes produit</button>
         </form>
         <br>
         <form action="connexion/logout.php">
